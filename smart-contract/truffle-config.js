@@ -18,7 +18,8 @@
  *
  */
 
-const HDWalletProvider = require('truffle-hdwallet-provider');
+// const HDWalletProvider = require('truffle-hdwallet-provider');
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 const fs = require('fs');
 const mnemonic = fs.readFileSync(".secret").toString().trim();
@@ -48,13 +49,22 @@ module.exports = {
     },
 
     fantom: {
-      provider: () => new HDWalletProvider(mnemonic, `https://rpc.ftm.tools`),
-      network_id: 250,
-      gas: 8500000,
-      gasPrice: 100000000000,  // 100 gwei (in wei)
+      provider: () => new HDWalletProvider(mnemonic, `http://localhost:8545`),
+      network_id: 4003,
+      gas: 8500000000000000,
+      gasPrice: 3000000000000000,  // 100 gwei (in wei)
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)
       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: false    // Skip dry run before migrations? (default: false for public nets )
+    },
+
+    'x1-testnet': {
+      network_id: 204005,
+      verify: {
+        apiUrl: 'https://explorer.x1-testnet.infrafc.org/api',
+        apiKey: 'MY_API_KEY',
+        explorerUrl: 'https://explorer.x1-testnet.infrafc.org/address',
+      },
     },
 
     // Another network with more advanced options...
@@ -90,6 +100,12 @@ module.exports = {
   mocha: {
     // timeout: 100000
   },
+
+  dashboard: {
+    port: 24012,
+  },
+
+  plugins: ['truffle-plugin-verify'],
 
   // Configure your compilers
   compilers: {

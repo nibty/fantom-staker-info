@@ -12,9 +12,11 @@
   "author": "Christian Lanz <christian.lanz@block42.tech>",
   "license": "MIT",
   "dependencies": {
-    "truffle-hdwallet-provider": "^1.0.17",
+    "@truffle/hdwallet-provider": "^2.1.13",
     "ganache-cli": "^6.8.1",
     "mocha": "^7.0.0",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "truffle-plugin-verify": "^0.5.33",
     "web3": "^1.2.4"
   }
 }
