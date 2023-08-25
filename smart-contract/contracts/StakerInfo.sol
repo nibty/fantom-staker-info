@@ -3,12 +3,13 @@ pragma solidity ^0.5.0;
 import "./Ownable.sol";
 
 contract StakersInterface {
-  function getStakerID(address addr) external view returns (uint256);
+  function getValidatorID(address addr) external view returns (uint256);
 }
 
 contract StakerInfo is Ownable {
   mapping (uint => string) public stakerInfos;
 
+  // The SFC contract address
   address internal stakerContractAddress;
 
   constructor(address _stakerContractAddress) public {
@@ -25,7 +26,7 @@ contract StakerInfo is Ownable {
     StakersInterface stakersInterface = StakersInterface(stakerContractAddress);
 
     // Get staker ID from staker contract
-    uint256 stakerID = stakersInterface.getStakerID(msg.sender);
+    uint256 stakerID = stakersInterface.getValidatorID(msg.sender);
 
     // Check if address belongs to a staker
     require(stakerID != 0, "Address does not belong to a staker!");

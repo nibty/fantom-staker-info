@@ -64,7 +64,7 @@ module.exports = {
         apiUrl: 'https://explorer.x1-testnet.infrafc.org/api',
         apiKey: 'MY_API_KEY',
         explorerUrl: 'https://explorer.x1-testnet.infrafc.org/address',
-      },
+      }
     },
 
     // Another network with more advanced options...
