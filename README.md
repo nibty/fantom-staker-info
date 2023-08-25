@@ -1,6 +1,6 @@
 ## X1 Staker Info
 
-X1 delegators have a hard time finding the right validators to delegator their FTM to. The community started some efforts to create more transparency and collect more information about validators but nothing was nice and easy to use. There also were issues keeping the data up-to-date because it was maintained in a centralized manner.
+X1 delegators have a hard time finding the right validators to delegator their XN to. The community started some efforts to create more transparency and collect more information about validators but nothing was nice and easy to use. There also were issues keeping the data up-to-date because it was maintained in a centralized manner.
 
 ## Update your validator info
 
@@ -39,7 +39,7 @@ abi = JSON.parse('[{"inputs":[{"internalType":"address","name":"_stakerContractA
 stakerInfoContract = web3.ftm.contract(abi).at("STAKER_INFO_CONTRACT_ADDRESS")
 ```
 
-4. Call the `updateInfo` function of the StakerInfo contract (make sure you have enough FTM on your wallet to cover the transaction fee)
+4. Call the `updateInfo` function of the StakerInfo contract (make sure you have enough XN on your wallet to cover the transaction fee)
 
 ```solidity
 stakerInfoContract.updateInfo("CONFIG_URL", { from: "VALIDATOR_ADDRESS" })
